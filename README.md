@@ -18,3 +18,10 @@ npx cypress install
 ```
 
 folder structur
+|-- node_modules
+|-- app
+|-- components
+|-- utils
+|-- cypress
+    |-- component
+    |-- e2e
