@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 const MovieListSkeleton: React.FC = () => {
   return (
     <div className="p-4 w-full">
-      {Array.from({ length: 5 }).map((_, index) => (
+      {Array.from({ length: 7 }).map((_, index) => (
         <div
           key={index}
           className="p-2 border-b border-gray-300 cursor-pointer"

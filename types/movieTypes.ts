@@ -16,6 +16,8 @@ export type MovieDetailProps = {
   imdbRating: string;
 };
 
+export type FilterTypeProps = 'any' | 'movie' | 'series' | 'episode';
+
 export interface SearchContextProps {
   movies: Movie[];
   setQueryCtx: (query: string) => void;
@@ -23,11 +25,12 @@ export interface SearchContextProps {
   queryCtx: string | null;
   error: any;
 
+  filterType: FilterTypeProps;
+  setFilterType: (filterType: FilterTypeProps) => void;
+
   selectedMovieID: string | null;
   setSelectedMovieID: (imdbID: string) => void;
   movieDetails: MovieDetailProps | null;
   movieDetailsError: any;
   isMovieDetailsLoading: boolean;
 }
-
-

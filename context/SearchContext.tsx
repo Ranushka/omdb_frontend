@@ -4,7 +4,7 @@ import { fetcher } from "@/utils/fetcher";
 import { createContext, useContext, ReactNode, useState } from 'react';
 import useSWR from 'swr';
 
-import { SearchContextProps, MovieDetailProps } from '@/types/movieTypes';
+import { SearchContextProps, MovieDetailProps, FilterTypeProps } from '@/types/movieTypes';
 
 const SearchContext = createContext<SearchContextProps | undefined>(undefined);
 
@@ -18,10 +18,32 @@ export const useSearch = () => {
   return context;
 };
 
+export const getUrlWithParams = (queryCtx: string, filterType: string) => {
+  const params = new URLSearchParams();
+  params.append('apikey', process.env.NEXT_PUBLIC_OMDB_API_KEY || '');
+
+  console.log('filterType', filterType)
+
+  if (filterType && filterType !== 'any') {
+    params.append('type', filterType);
+  }
+
+  if (queryCtx) {
+    params.append('s', queryCtx);
+  }
+
+  const queryStr = params.toString();
+  const url = `http://www.omdbapi.com/?${queryStr}`;
+  return url;
+};
+
 export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [queryCtx, setQueryCtx] = useState<string | null>(null);
+  const [filterType, setFilterType] = useState<FilterTypeProps>('any');
   const { data, error, isLoading } = useSWR(
-    queryCtx ? `http://www.omdbapi.com/?s=${queryCtx}&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}` : null,
+    queryCtx
+      ? getUrlWithParams(queryCtx, filterType)
+      : null,
     fetcher
   );
 
@@ -40,6 +62,9 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       setQueryCtx,
       isLoading,
       error,
+
+      filterType,
+      setFilterType,
 
       selectedMovieID,
       setSelectedMovieID,

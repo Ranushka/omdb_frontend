@@ -1,7 +1,7 @@
 import SearchBar from '@/components/SearchBar';
 import MovieList from '@/components/MovieList';
 import MovieDetail from '@/components/MovieDetail';
-import FilterComponents from '@/components/FilterComponents';
+import FilterComponents from '@/components/Filters/FilterList';
 import { SearchProvider } from "@/context/SearchContext";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
           <FilterComponents />
         </div>
         <div className="flex h-full">
-          <aside className="w-1/3 bg-gray-200 h-full">
+          <aside className="w-1/3 bg-gray-200 h-full overflow-y-scroll">
             <MovieList />
           </aside>
           <main className="w-2/3 bg-gray-100 h-full">
@@ -22,6 +22,5 @@ export default function Home() {
         </div>
       </div>
     </SearchProvider>
-
   );
 }
