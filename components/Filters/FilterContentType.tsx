@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useSearch } from "@/context/SearchContext";
 import { FilterTypeProps } from "@/types/movieTypes";
+import { filterContentTypes } from "@/const";
 
 const FilterList: React.FC = () => {
   const { setFilterType } = useSearch();
@@ -15,7 +16,7 @@ const FilterList: React.FC = () => {
 
   return (
     <div className="flex items-center space-x-4">
-      {['any', 'movies', 'series', 'episodes'].map((option) => (
+      {filterContentTypes.map((option) => (
         <label key={option} className="flex items-center cursor-pointer">
           <input
             type="radio"

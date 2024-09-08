@@ -4,9 +4,10 @@ import Image from "next/image";
 import { BookmarkIcon } from "@heroicons/react/20/solid";
 
 import { useSearch } from "@/context/SearchContext";
-import MovieDetailSkeleton from "@/components/MovieDetailSkeleton";
+import MovieDetailSkeleton from "@/components/MovieDetail/MovieDetailSkeleton";
 import PlaceholderMsg from "@/components/PlaceholderMsg";
-import RatingsDisplay from "@/components/RatingsDisplay";
+import RatingsDisplay from "./RatingsDisplay";
+import { placeholderImg } from "@/const";
 
 const MovieDetail: React.FC = () => {
   const { movieDetails, isMovieDetailsLoading, movieDetailsError, selectedMovieID } = useSearch();
@@ -21,11 +22,11 @@ const MovieDetail: React.FC = () => {
       <div className="block md:flex">
         <div className="flex-shrink-0 mb-4 lg:mb-0 flex justify-center">
           <Image
-            src={movieDetails.Poster}
+            src={movieDetails.Poster === "N/A" ? placeholderImg : movieDetails.Poster}
             alt={movieDetails.Title}
             width={200}
             height={300}
-            placeholder="data:image/svg+xml,%3Csvg width='200' height='300' viewBox='0 0 200 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='300' fill='url(%23paint0_linear_21_26)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_21_26' x1='112.5' y1='-5.67523e-08' x2='110.938' y2='300' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23CDCDCD'/%3E%3Cstop offset='1' stop-color='%23858585'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A"
+            placeholder={placeholderImg}
             className="rounded"
           />
         </div>
@@ -51,6 +52,7 @@ const MovieDetail: React.FC = () => {
 
       <hr className="my-4" />
       <p>{movieDetails.Plot}</p>
+      <hr className="my-4" />
 
       <RatingsDisplay />
     </div>

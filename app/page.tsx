@@ -1,6 +1,6 @@
 import SearchBar from '@/components/SearchBar';
-import MovieList from '@/components/MovieList';
-import MovieDetail from '@/components/MovieDetail';
+import MovieList from '@/components/MovieList/MovieList';
+import MovieDetail from '@/components/MovieDetail/MovieDetail';
 import FilterComponents from '@/components/Filters/FilterList';
 import { SearchProvider } from "@/context/SearchContext";
 
