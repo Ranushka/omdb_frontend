@@ -8,6 +8,7 @@ import MovieDetailSkeleton from "@/components/MovieDetail/MovieDetailSkeleton";
 import PlaceholderMsg from "@/components/PlaceholderMsg";
 import RatingsDisplay from "./RatingsDisplay";
 import { placeholderImg } from "@/const";
+import WatchlistButton from "./WatchlistButton";
 
 const MovieDetail: React.FC = () => {
   const { movieDetails, isMovieDetailsLoading, movieDetailsError, selectedMovieID } = useSearch();
@@ -32,13 +33,7 @@ const MovieDetail: React.FC = () => {
         </div>
         <div className="flex-grow flex flex-col justify-between ml-4">
           <div className="flex justify-end">
-            <button
-              type="button"
-              className="inline-flex items-center gap-x-1.5 rounded-md px-3 py-2 border text-sm font-semibold border-gray-500 text-gray-500 hover:bg-gray-300"
-            >
-              <BookmarkIcon aria-hidden="true" className="-ml-0.5 h-5 w-5 opacity-80" />
-              Button text
-            </button>
+            <WatchlistButton selectedMovieID={selectedMovieID} />
           </div>
           <div className="mt-auto">
             <h2 className="text-2xl font-bold">{movieDetails.Title}</h2>
