@@ -1,29 +1,40 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { BookmarkIcon } from "@heroicons/react/20/solid";
+import Image from 'next/image';
 
-import { useSearch } from "@/context/SearchContext";
-import MovieDetailSkeleton from "@/components/MovieDetail/MovieDetailSkeleton";
-import PlaceholderMsg from "@/components/PlaceholderMsg";
-import RatingsDisplay from "./RatingsDisplay";
-import { placeholderImg } from "@/const";
-import WatchlistButton from "./WatchlistButton";
+import { useSearch } from '@/context/SearchContext';
+import MovieDetailSkeleton from '@/components/MovieDetail/MovieDetailSkeleton';
+import PlaceholderMsg from '@/components/PlaceholderMsg';
+import RatingsDisplay from './RatingsDisplay';
+import { placeholderImg } from '@/const';
+import WatchlistButton from './WatchlistButton';
 
 const MovieDetail: React.FC = () => {
-  const { movieDetails, isMovieDetailsLoading, movieDetailsError, selectedMovieID } = useSearch();
+  const {
+    movieDetails,
+    isMovieDetailsLoading,
+    movieDetailsError,
+    selectedMovieID,
+  } = useSearch();
 
-  if (!selectedMovieID) return <PlaceholderMsg>Select a movie to see details</PlaceholderMsg>;
+  if (!selectedMovieID)
+    return <PlaceholderMsg>Select a movie to see details</PlaceholderMsg>;
   if (isMovieDetailsLoading) return <MovieDetailSkeleton />;
-  if (movieDetailsError) return <PlaceholderMsg>Error loading movie details.</PlaceholderMsg>;
-  if (!movieDetails) return <PlaceholderMsg>No movie details found.</PlaceholderMsg>;
+  if (movieDetailsError)
+    return <PlaceholderMsg>Error loading movie details.</PlaceholderMsg>;
+  if (!movieDetails)
+    return <PlaceholderMsg>No movie details found.</PlaceholderMsg>;
 
   return (
     <div className="p-4">
       <div className="block md:flex">
         <div className="flex-shrink-0 mb-4 lg:mb-0 flex justify-center">
           <Image
-            src={movieDetails.Poster === "N/A" ? placeholderImg : movieDetails.Poster}
+            src={
+              movieDetails.Poster === 'N/A'
+                ? placeholderImg
+                : movieDetails.Poster
+            }
             alt={movieDetails.Title}
             width={200}
             height={300}

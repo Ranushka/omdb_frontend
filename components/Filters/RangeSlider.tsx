@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useState } from 'react';
 
@@ -28,8 +28,13 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
     return ((value - min) / (max - min)) * 100;
   };
 
-  const minThumbOffset = knobWidth * (minValue - min) / (max - min);
-  const maxThumbOffset = knobWidth * (max - maxValue) / (max - min);
+  const minThumbOffset = (knobWidth * (minValue - min)) / (max - min);
+  const maxThumbOffset = (knobWidth * (max - maxValue)) / (max - min);
+
+  const thumbStyles = {
+    left: `calc(${calculateThumbPosition(minValue)}% - ${minThumbOffset}px)`,
+    right: `calc(${100 - calculateThumbPosition(maxValue)}% - ${maxThumbOffset}px)`,
+  };
 
   return (
     <div className="flex items-center">
@@ -37,10 +42,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
       <div className="relative flex-1 h-2 bg-gray-400 rounded-full w-32 range-input">
         <div
           className="absolute h-2 bg-blue-700 rounded-full"
-          style={{
-            left: `calc(${calculateThumbPosition(minValue)}% - ${minThumbOffset}px)`,
-            right: `calc(${100 - calculateThumbPosition(maxValue)}% - ${maxThumbOffset}px)`,
-          }}
+          style={thumbStyles}
         ></div>
         <input
           type="range"
@@ -68,4 +70,4 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
   );
 };
 
-export default RangeSlider
+export default RangeSlider;

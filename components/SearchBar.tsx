@@ -1,14 +1,12 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { useSearch } from '@/context/SearchContext';
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 
 const SearchBar: React.FC = () => {
   const { setQueryCtx, queryCtx } = useSearch();
   const [query, setQuery] = useState(queryCtx || '');
-
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +16,10 @@ const SearchBar: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="p-4 w-full relative">
       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center pl-3">
-        <MagnifyingGlassIcon aria-hidden="true" className="h-5 w-5 text-gray-400" />
+        <MagnifyingGlassIcon
+          aria-hidden="true"
+          className="h-5 w-5 text-gray-400"
+        />
       </div>
       <input
         autoFocus
@@ -34,5 +35,3 @@ const SearchBar: React.FC = () => {
 };
 
 export default SearchBar;
-
-
