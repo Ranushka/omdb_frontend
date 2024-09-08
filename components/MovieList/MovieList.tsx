@@ -8,16 +8,16 @@ import PlaceholderMsg from "../PlaceholderMsg";
 import { placeholderImg } from "@/const";
 
 const MovieList: React.FC = () => {
-  const { movies, isLoading, error, queryCtx, setSelectedMovieID } = useSearch();
+  const { moviesList, moviesListIsLoading, moviesListError, queryCtx, setSelectedMovieID } = useSearch();
 
   if (!queryCtx) return <PlaceholderMsg> ↑ <br />Start searching for a movies. </PlaceholderMsg>;
-  if (isLoading) return <MovieListSkeleton />;
-  if (error) return <PlaceholderMsg> Error loading movies. </PlaceholderMsg>;
-  if (movies.length === 0) return <PlaceholderMsg> No movies found. </PlaceholderMsg>;
+  if (moviesListIsLoading) return <MovieListSkeleton />;
+  if (moviesListError) return <PlaceholderMsg> Error loading movies. </PlaceholderMsg>;
+  if (moviesList.length === 0) return <PlaceholderMsg> No movies found. </PlaceholderMsg>;
 
   return (
     <div className="p-4 w-full flex lg:flex-col">
-      {movies.map((movie: Movie) => (
+      {moviesList.map((movie: Movie) => (
         <div
           key={movie.imdbID}
           className="p-2 border-b border-gray-300 cursor-pointer hover:bg-gray-300"

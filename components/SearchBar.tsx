@@ -6,8 +6,9 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 
 const SearchBar: React.FC = () => {
-  const [query, setQuery] = useState('');
-  const { setQueryCtx } = useSearch();
+  const { setQueryCtx, queryCtx } = useSearch();
+  const [query, setQuery] = useState(queryCtx || '');
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

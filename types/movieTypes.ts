@@ -20,11 +20,11 @@ export type MovieDetailProps = {
 export type FilterTypeProps = 'any' | 'movie' | 'series' | 'episode';
 
 export interface SearchContextProps {
-  movies: Movie[];
+  moviesList: Movie[];
+  moviesListError: any;
   setQueryCtx: (query: string) => void;
-  isLoading: boolean;
+  moviesListIsLoading: boolean;
   queryCtx: string | null;
-  error: any;
 
   filterType: FilterTypeProps;
   setFilterType: (filterType: FilterTypeProps) => void;
