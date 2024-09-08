@@ -24,6 +24,7 @@ export interface SearchContextProps {
   moviesListError: any;
   setQueryCtx: (query: string) => void;
   moviesListIsLoading: boolean;
+  moviesListCount: string | null;
   queryCtx: string | null;
 
   filterType: FilterTypeProps;

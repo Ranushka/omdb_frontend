@@ -35,6 +35,7 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     fetcher
   );
   const moviesList = queryCtxData?.Search || [];
+  const moviesListCount = queryCtxData?.totalResults || null;
 
   const [selectedMovieID, setSelectedMovieID] = useState<string>('');
   const { data: movieDetails, error: movieDetailsError, isLoading: isMovieDetailsLoading } = useSWR(
@@ -65,6 +66,7 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       moviesList,
       moviesListError,
       moviesListIsLoading,
+      moviesListCount,
 
       filterType,
       setFilterType,
