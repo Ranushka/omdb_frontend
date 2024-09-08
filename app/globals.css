@@ -69,3 +69,12 @@ body {
   pointer-events: auto;
   -moz-appearance: none;
 }
+
+
+.movie_detail_rating>div {
+  border-right: 1px solid #ccc;
+}
+
+.movie_detail_rating>div:last-child {
+  border-right: none;
+}

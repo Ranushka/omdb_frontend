@@ -25,7 +25,7 @@ const FilterList: React.FC = () => {
             onChange={(e) => handleFilterChange(e.target.value)}
             className="form-radio h-4 w-4 mr-1 cursor-pointer border-gray-300 text-blue-600 focus:ring-blue-600"
           />
-          <span className="text-sm capitalize">{option}</span>
+          <span className="text-xs capitalize">{option}</span>
         </label>
       ))}
     </div>

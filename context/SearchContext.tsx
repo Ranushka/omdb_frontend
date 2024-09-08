@@ -22,8 +22,6 @@ export const getUrlWithParams = (queryCtx: string, filterType: string) => {
   const params = new URLSearchParams();
   params.append('apikey', process.env.NEXT_PUBLIC_OMDB_API_KEY || '');
 
-  console.log('filterType', filterType)
-
   if (filterType && filterType !== 'any') {
     params.append('type', filterType);
   }

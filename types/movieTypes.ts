@@ -12,6 +12,7 @@ export type MovieDetailProps = {
   Poster: string;
   Genre: string;
   Rated: string;
+  Ratings: { Source: string; Value: string }[];
   Actors: string;
   imdbRating: string;
 };
