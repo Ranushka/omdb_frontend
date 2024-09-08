@@ -4,15 +4,17 @@ import Image from "next/image";
 import { BookmarkIcon } from "@heroicons/react/20/solid";
 
 import { useSearch } from "@/context/SearchContext";
+import MovieDetailSkeleton from "@/components/MovieDetailSkeleton";
+import PlaceholderMsg from "./PlaceholderMsg";
 
 
 const MovieDetail: React.FC = () => {
   const { movieDetails, isMovieDetailsLoading, movieDetailsError, selectedMovieID } = useSearch();
 
-  if (!selectedMovieID) return <div>Select a movie to see details</div>;
-  if (isMovieDetailsLoading) return <div>Loading movie details...</div>;
-  if (movieDetailsError) return <div>Error loading movie details.</div>;
-  if (!movieDetails) return <div>No movie details found.</div>;
+  if (!selectedMovieID) return <PlaceholderMsg> ← Select a movie to see details</PlaceholderMsg>;
+  if (isMovieDetailsLoading) return <MovieDetailSkeleton />;
+  if (movieDetailsError) return <PlaceholderMsg> Error loading movie details. </PlaceholderMsg>;
+  if (!movieDetails) return <PlaceholderMsg> No movie details found. </PlaceholderMsg>;
 
   return (
     <div className="p-4">
@@ -23,6 +25,7 @@ const MovieDetail: React.FC = () => {
             alt={movieDetails.Title}
             width={200}
             height={300}
+            placeholder="data:image/svg+xml,%3Csvg width='200' height='300' viewBox='0 0 200 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='300' fill='url(%23paint0_linear_21_26)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_21_26' x1='112.5' y1='-5.67523e-08' x2='110.938' y2='300' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23CDCDCD'/%3E%3Cstop offset='1' stop-color='%23858585'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A"
             className="rounded"
           />
         </div>

@@ -16,6 +16,7 @@ const SearchBar: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="p-4 w-full">
       <input
+        autoFocus
         type="text"
         className="border text-gray-900 p-2 rounded w-full"
         placeholder="Search movies..."
