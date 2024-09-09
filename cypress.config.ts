@@ -1,16 +1,17 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
+import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin';
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    setupNodeEvents(on) {
+      addMatchImageSnapshotPlugin(on);
     },
   },
 
   component: {
     devServer: {
-      framework: "next",
-      bundler: "webpack",
+      framework: 'next',
+      bundler: 'webpack',
     },
   },
 });

@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@heroicons/react": "^2.1.5",
+    "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

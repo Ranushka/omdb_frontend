@@ -62,3 +62,17 @@ Cypress.Commands.add('mockMovieDetail_the_batman', () => {
     }).as('mockMovieDetail_the_batman');
   });
 });
+
+Cypress.Commands.add('mockMovieDetail_batman_begins_loading', () => {
+  cy.intercept('GET', `https://www.omdbapi.com/?apikey=4d3d3b7&i=tt0372784`, {
+    statusCode: 200,
+    delay: 3000,
+  }).as('mockMovieDetail_batman_begins_loading');
+});
+
+Cypress.Commands.add('mockMovieSearch_loading', () => {
+  cy.intercept('GET', `https://www.omdbapi.com/?apikey=4d3d3b7&s=Batman`, {
+    statusCode: 200,
+    delay: 3000,
+  }).as('mockMovieSearch_loading');
+});

@@ -12,5 +12,7 @@ declare namespace Cypress {
     mockMovieSearch(): Chainable<Subject>;
     mockMovieDetail_batman_begins(): Chainable<Subject>;
     mockMovieDetail_the_batman(): Chainable<Subject>;
+    mockMovieDetail_batman_begins_loading(): Chainable<>;
+    mockMovieSearch_loading(): Chainable<>;
   }
 }
