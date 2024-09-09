@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 w-full relative">
+    <form onSubmit={handleSubmit} className="p-4 w-full relative" role="search">
       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center pl-3">
         <MagnifyingGlassIcon
           aria-hidden="true"

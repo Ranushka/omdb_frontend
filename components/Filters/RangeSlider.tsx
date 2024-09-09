@@ -55,6 +55,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
           onChange={handleMinChange}
           className="absolute w-full cursor-pointer range_left"
           style={{ transform: `translateX(calc(-${knobWidth / 2}px))` }}
+          aria-label={`Movies from year ${minValue}`}
         />
         <input
           type="range"
@@ -65,6 +66,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
           onChange={handleMaxChange}
           className="absolute w-full cursor-pointer range_right"
           style={{ transform: `translateX(calc(${knobWidth / 2}px))` }}
+          aria-label={`Movies to year ${minValue}`}
         />
       </div>
       <div className="w-12 text-right flex-none text-xs max_value">

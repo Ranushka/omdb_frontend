@@ -1,8 +1,10 @@
+import { BASE_URL } from '../../utils/const';
+
 describe('Search Functionality', () => {
   it('should allow the user to search for movies', () => {
     cy.mockMovieSearch();
 
-    cy.visit('http://localhost:3000/');
+    cy.visit(BASE_URL);
 
     cy.get('input[name="query"]').type('Batman');
     cy.get('form').submit();

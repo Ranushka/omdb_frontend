@@ -41,24 +41,24 @@ Cypress.Commands.add('mockMovieSearch', () => {
     cy.intercept('GET', `https://www.omdbapi.com/?apikey=4d3d3b7&s=Batman`, {
       statusCode: 200,
       body: moviesData,
-    }).as('getMovies');
+    }).as('mockMovieSearch');
   });
 });
 
 Cypress.Commands.add('mockMovieDetail_batman_begins', () => {
-  cy.fixture('batman_begins.json').then((moviesData) => {
+  cy.fixture('batman_begins.json').then((batman_begins) => {
     cy.intercept('GET', `https://www.omdbapi.com/?apikey=4d3d3b7&i=tt0372784`, {
       statusCode: 200,
-      body: moviesData,
+      body: batman_begins,
     }).as('mockMovieDetail_batman_begins');
   });
 });
 
 Cypress.Commands.add('mockMovieDetail_the_batman', () => {
-  cy.fixture('the_batman.json').then((moviesData) => {
+  cy.fixture('the_batman.json').then((the_batman) => {
     cy.intercept('GET', `https://www.omdbapi.com/?apikey=4d3d3b7&i=tt1877830`, {
       statusCode: 200,
-      body: moviesData,
+      body: the_batman,
     }).as('mockMovieDetail_the_batman');
   });
 });

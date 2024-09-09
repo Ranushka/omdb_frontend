@@ -34,7 +34,7 @@ const WatchlistButton: React.FC<WatchlistButtonProps> = ({
     <button
       onClick={toggleWatchlist}
       type="button"
-      className="inline-flex items-center gap-x-1.5 rounded-md px-3 py-2 border text-sm font-semibold border-gray-500 text-gray-500 hover:bg-gray-300"
+      className="inline-flex items-center gap-x-1.5 rounded-md px-3 py-2 border text-sm font-semibold border-gray-500 text-gray-600 hover:bg-gray-300"
     >
       <BookmarkIcon
         aria-hidden="true"

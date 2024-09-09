@@ -6,7 +6,7 @@ import { useSearch } from '@/context/SearchContext';
 import MovieDetailSkeleton from '@/components/MovieDetail/MovieDetailSkeleton';
 import PlaceholderMsg from '@/components/PlaceholderMsg';
 import RatingsDisplay from './RatingsDisplay';
-import { placeholderImg } from '@/const';
+import { placeholderImg } from '@/utils/const';
 import WatchlistButton from './WatchlistButton';
 
 const MovieDetail: React.FC = () => {

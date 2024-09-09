@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useSearch } from '@/context/SearchContext';
 import { FilterTypeProps } from '@/types/movieTypes';
-import { filterContentTypes } from '@/const';
+import { filterContentTypes } from '@/utils/const';
 
 const FilterList: React.FC = () => {
   const { setFilterType } = useSearch();

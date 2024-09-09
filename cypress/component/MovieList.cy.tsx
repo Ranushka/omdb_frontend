@@ -1,7 +1,7 @@
+import { mount } from 'cypress/react18';
 import MovieList from '@/components/MovieList/MovieList';
 import { SearchContext } from '@/context/SearchContext';
-import { mount } from 'cypress/react18';
-import { placeholderImg } from '@/const';
+import { placeholderImg } from '@/utils/const';
 import { SearchContextProps, FilterTypeProps } from '@/types/movieTypes';
 
 describe('MovieList Component', () => {

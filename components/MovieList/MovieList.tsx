@@ -5,7 +5,7 @@ import { useSearch } from '@/context/SearchContext';
 import { Movie } from '@/types/movieTypes';
 import MovieListSkeleton from '@/components/MovieList/MovieListSkeleton';
 import PlaceholderMsg from '../PlaceholderMsg';
-import { placeholderImg } from '@/const';
+import { placeholderImg } from '@/utils/const';
 
 const MovieList: React.FC = () => {
   const {
@@ -41,7 +41,12 @@ const MovieList: React.FC = () => {
         </p>
       )}
 
-      <div id="movieSearchReults" className="p-4 pt-0 w-full flex lg:flex-col">
+      <div
+        id="movieSearchReults"
+        className="p-4 pt-0 w-full flex lg:flex-col"
+        tabIndex={0}
+        aria-label="Movie list"
+      >
         {moviesList.map((movie: Movie) => (
           <div
             key={movie.imdbID}
