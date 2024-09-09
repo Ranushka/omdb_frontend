@@ -8,6 +8,10 @@ interface RangeSliderProps {
   step: number;
 }
 
+/* __DOC
+Raange silder, mainly for gat year rage
+<RangeSlider min={1970} max={2024} step={1} />
+DOC__ */
 const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
