@@ -5,8 +5,8 @@ retrieve and display movie and series data.
 
 ## Features
 
-- Users can search for a title
-- Filter by content type
+- users can search for a title
+- filter by content type
 - date rage is not supoted by the API
 - view movie details
 - toggle titles to a watchlist (This is by utilizing localstorage)
