@@ -45,7 +45,7 @@ const MovieList: React.FC = () => {
         {moviesList.map((movie: Movie) => (
           <div
             key={movie.imdbID}
-            className="p-2 border-b border-gray-300 cursor-pointer hover:bg-gray-300"
+            className="p-2 border-b border-gray-300 cursor-pointer hover:bg-gray-300 search_result_item"
             onClick={() => setSelectedMovieID(movie.imdbID)}
           >
             <div className="flex items-start lg:items-center gap-3 flex-col lg:flex-row">

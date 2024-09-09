@@ -38,7 +38,9 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
 
   return (
     <div className="flex items-center">
-      <div className="w-12 text-left flex-none text-xs">{minValue}</div>
+      <div className="w-12 text-left flex-none text-xs min_value">
+        {minValue}
+      </div>
       <div className="relative flex-1 h-2 bg-gray-400 rounded-full w-32 range-input">
         <div
           className="absolute h-2 bg-blue-700 rounded-full"
@@ -65,7 +67,9 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step }) => {
           style={{ transform: `translateX(calc(${knobWidth / 2}px))` }}
         />
       </div>
-      <div className="w-12 text-right flex-none text-xs">{maxValue}</div>
+      <div className="w-12 text-right flex-none text-xs max_value">
+        {maxValue}
+      </div>
     </div>
   );
 };

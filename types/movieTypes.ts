@@ -21,7 +21,7 @@ export type FilterTypeProps = 'any' | 'movie' | 'series' | 'episode';
 
 export interface SearchContextProps {
   moviesList: Movie[];
-  moviesListError: any;
+  moviesListError: unknown;
   setQueryCtx: (query: string) => void;
   moviesListIsLoading: boolean;
   moviesListCount: string | null;
@@ -33,6 +33,6 @@ export interface SearchContextProps {
   selectedMovieID: string | null;
   setSelectedMovieID: (imdbID: string) => void;
   movieDetails: MovieDetailProps | null;
-  movieDetailsError: any;
+  movieDetailsError: unknown;
   isMovieDetailsLoading: boolean;
 }

@@ -14,7 +14,9 @@ import useSWR from 'swr';
 import { SearchContextProps, FilterTypeProps } from '@/types/movieTypes';
 import { getMovieDetailUrl, getMovieListingUrl } from '@/utils/getApiUrl';
 
-const SearchContext = createContext<SearchContextProps | undefined>(undefined);
+export const SearchContext = createContext<SearchContextProps | undefined>(
+  undefined
+);
 
 export const useSearch = () => {
   const context = useContext(SearchContext);
