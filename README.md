@@ -1,7 +1,5 @@
 # OMDB frontend test
 
-## Project Overview
-
 This project is a movie and series search application that uses the [OMDB API](https://www.omdbapi.com/) to
 retrieve and display movie and series data.
 
