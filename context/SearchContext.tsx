@@ -34,14 +34,16 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Get search query from the url and set as default
-  const [queryCtx, setQueryCtx] = useState<string | null>(
-    searchParams.get('q') || null
-  );
-
   // TODO need to safly set content filter type value from url
   const [filterType, setFilterType] = useState<FilterTypeProps>('any');
 
+  /* 
+  // get search query from url if exsist
+  // search movie in OMDB
+  */
+  const [queryCtx, setQueryCtx] = useState<string | null>(
+    searchParams.get('q') || null
+  );
   const {
     data: queryCtxData,
     error: moviesListError,
@@ -50,10 +52,20 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({
     queryCtx ? getMovieListingUrl(queryCtx, filterType) : null,
     fetcher
   );
+
+  /* 
+  // arrange search results for easy access
+  */
   const moviesList = queryCtxData?.Search || [];
   const moviesListCount = queryCtxData?.totalResults || null;
 
-  const [selectedMovieID, setSelectedMovieID] = useState<string>('');
+  /* 
+  // get search OMDB id from url if exsist
+  // OMDB Id need for getting movie details
+  */
+  const [selectedMovieID, setSelectedMovieID] = useState<string>(
+    searchParams.get('oid') || ''
+  );
   const {
     data: movieDetails,
     error: movieDetailsError,
@@ -63,11 +75,11 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({
     fetcher
   );
 
+  /* 
+  // update the url parameters.
+  // TODO need to optimize for Back/forward cache
+  */
   useEffect(() => {
-    // Need to query results as url parms
-    //
-    // TODO query detail movie from url parms
-    // TODO need query results as url parms
     if (queryCtx) {
       const params = new URLSearchParams();
 
@@ -75,9 +87,13 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({
         params.set('q', queryCtx);
       }
 
+      if (selectedMovieID) {
+        params.set('oid', selectedMovieID);
+      }
+
       router.replace(`?${params.toString()}`);
     }
-  }, [queryCtx, filterType, router]);
+  }, [queryCtx, filterType, router, selectedMovieID]);
 
   return (
     <SearchContext.Provider
