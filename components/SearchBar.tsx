@@ -24,12 +24,20 @@ const SearchBar: React.FC = () => {
       <input
         autoFocus
         type="text"
-        className="text-gray-100 p-2 pl-10 rounded w-full h-full outline-none bg-gray-800 border-0 focus:bg-gray-900 focus:ring-1"
+        className="text-gray-100 p-2 pl-10 rounded w-full h-14 outline-none bg-gray-800 border-0 focus:bg-gray-900 focus:ring-1"
         placeholder="Search movies..."
         value={query}
         name="query"
         onChange={(e) => setQuery(e.target.value)}
       />
+      {query && (
+        <button
+          type="submit"
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none"
+        >
+          Search
+        </button>
+      )}
     </form>
   );
 };

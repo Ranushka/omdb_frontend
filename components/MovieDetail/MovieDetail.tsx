@@ -17,13 +17,21 @@ const MovieDetail: React.FC = () => {
     selectedMovieID,
   } = useSearch();
 
-  if (!selectedMovieID)
+  if (!selectedMovieID) {
     return <PlaceholderMsg>Select a movie to see details</PlaceholderMsg>;
-  if (isMovieDetailsLoading) return <MovieDetailSkeleton />;
-  if (movieDetailsError)
+  }
+
+  if (isMovieDetailsLoading) {
+    return <MovieDetailSkeleton />;
+  }
+
+  if (movieDetailsError) {
     return <PlaceholderMsg>Error loading movie details.</PlaceholderMsg>;
-  if (!movieDetails)
+  }
+
+  if (!movieDetails) {
     return <PlaceholderMsg>No movie details found.</PlaceholderMsg>;
+  }
 
   return (
     <div className="p-4">
@@ -47,7 +55,9 @@ const MovieDetail: React.FC = () => {
             <WatchlistButton selectedMovieID={selectedMovieID} />
           </div>
           <div className="mt-auto">
-            <h2 className="text-2xl font-bold">{movieDetails.Title}</h2>
+            <h1 id="movieDetailTitle" className="text-2xl font-bold">
+              {movieDetails.Title}
+            </h1>
             <p>
               {movieDetails.Rated} {movieDetails.Year} · {movieDetails.Genre}
             </p>
