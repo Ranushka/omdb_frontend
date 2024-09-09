@@ -15,17 +15,16 @@
 ```
 npx create-next-app@latest omdb_frontend --ts --tailwind --eslint --app
 npx cypress install
-
 ```
 
 ## folder structur
 
-├── node_modules
-├── app
-├── components
-├── utils
-├── types
-├── context
-├── cypress
-│ ├── component
-│ ├── e2e
+- node_modules
+- app
+- components
+- utils
+- types
+- context
+- cypress
+  - component
+  - e2e
