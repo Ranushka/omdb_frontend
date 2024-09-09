@@ -1,33 +1,9 @@
 # OMDB frontend test
 
-On this test i have
-
-## Planing to use
-
-## int project with this
-
-```
-npx create-next-app@latest omdb_frontend --ts --tailwind --eslint --app
-npx cypress install
-```
-
-## folder structur
-
-- node_modules
-- app
-- components
-- utils
-- types
-- context
-- cypress
-  - component
-  - e2e
-
-# OMDB frontend test
-
 ## Project Overview
 
-This project is a movie and series search application that uses the [OMDB API](https://www.omdbapi.com/) to retrieve and display movie and series data.
+This project is a movie and series search application that uses the [OMDB API](https://www.omdbapi.com/) to
+retrieve and display movie and series data.
 
 ## Features
 
