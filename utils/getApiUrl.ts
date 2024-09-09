@@ -11,7 +11,7 @@ export const getMovieListingUrl = (queryCtx: string, filterType: string) => {
   }
 
   const queryStr = params.toString();
-  return `http://www.omdbapi.com/?${queryStr}`;
+  return `https://www.omdbapi.com/?${queryStr}`;
 };
 
 export const getMovieDetailUrl = (selectedMovieID: string) => {
@@ -23,5 +23,5 @@ export const getMovieDetailUrl = (selectedMovieID: string) => {
   }
 
   const queryStr = params.toString();
-  return `http://www.omdbapi.com/?${queryStr}`;
+  return `https://www.omdbapi.com/?${queryStr}`;
 };
